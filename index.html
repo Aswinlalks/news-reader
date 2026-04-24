@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ലൈവ് കൊച്ചി 365 | Live Kochi 365 News</title>
     
-   <link rel="icon" href="https://yt3.googleusercontent.com/ny-IusL893j_6ucVYxkBAQEfyjFcEERQV9UPYc5hFHJkWIV0FJdHSdG8Q8zn7ePLjYaY3I3_YZs=s120-c-k-c0x00ffffff-no-rj">
+    <link rel="icon" href="https://yt3.googleusercontent.com/ny-IusL893j_6ucVYxkBAQEfyjFcEERQV9UPYc5hFHJkWIV0FJdHSdG8Q8zn7ePLjYaY3I3_YZs=s120-c-k-c0x00ffffff-no-rj">
+    
     <style>
         /* Modern Newspaper Theme */
         :root {
@@ -41,15 +42,16 @@
         }
 
         .logo {
-            height: 60px; /* Adjust this if your logo is too big/small */
+            height: 60px;
             width: auto;
+            border-radius: 50%; /* Makes the logo perfectly round */
         }
 
         h1 {
             color: var(--primary-red);
             margin: 0;
             font-size: 2.2rem;
-            font-family: 'Georgia', serif; /* Gives a news-publisher feel */
+            font-family: 'Georgia', serif;
         }
 
         /* Layout Grid */
@@ -58,7 +60,7 @@
             margin: 30px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 2.5fr 1fr; /* News takes 2.5x more space than sidebar */
+            grid-template-columns: 2.5fr 1fr;
             gap: 30px;
         }
 
@@ -96,9 +98,7 @@
             transition: background 0.3s;
         }
 
-        .video-btn:hover {
-            background: #b71c1c;
-        }
+        .video-btn:hover { background: #b71c1c; }
 
         /* Sidebar Widgets */
         .sidebar {
@@ -124,35 +124,34 @@
             font-family: 'Georgia', serif;
         }
 
-        /* Weather specific styling */
-        .weather-info {
-            text-align: center;
-        }
-        .district-name {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #333;
-        }
-        .temperature {
-            font-size: 2.5rem;
-            color: var(--primary-red);
-            margin: 10px 0;
-            font-weight: bold;
-        }
-
-        /* History specific styling */
-        .date-display {
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 10px;
+        /* Social Buttons */
+        .social-btn {
             display: block;
+            text-align: center;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            transition: opacity 0.3s;
         }
+        .social-btn:hover { opacity: 0.8; }
+        .whatsapp-btn { background: #25D366; }
+        .youtube-btn { background: #FF0000; }
 
-        /* Mobile Responsive */
+        /* Weather styling */
+        .weather-info { text-align: center; }
+        .district-name { font-size: 1.4rem; font-weight: bold; color: #333; }
+        .temperature { font-size: 2.5rem; color: var(--primary-red); margin: 10px 0; font-weight: bold; }
+
+        /* History styling */
+        .date-display { font-weight: bold; color: #555; margin-bottom: 10px; display: block; }
+        .history-section-title { color: #333; margin: 15px 0 5px 0; font-size: 1.05rem; }
+        .history-text { font-size: 0.95em; margin-top: 0; color: #555; line-height: 1.5; }
+
         @media (max-width: 850px) {
-            .container {
-                grid-template-columns: 1fr; /* Stacks everything on mobile */
-            }
+            .container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -160,8 +159,7 @@
 
     <header>
         <div class="header-content">
-            <img src="https://yt3.googleusercontent.com/ny-IusL893j_6ucVYxkBAQEfyjFcEERQV9UPYc5hFHJkWIV0FJdHSdG8Q8zn7ePLjYaY3I3_YZs=s120-c-k-c0x00ffffff-no-rj" alt="Live Kochi 365 Logo" class="logo">
-            <h1>ലൈവ് കൊച്ചി 365 വാർത്തകൾ</h1>
+<img src="https://yt3.googleusercontent.com/ny-IusL893j_6ucVYxkBAQEfyjFcEERQV9UPYc5hFHJkWIV0FJdHSdG8Q8zn7ePLjYaY3I3_YZs=s120-c-k-c0x00ffffff-no-rj" alt="Live Kochi 365 Logo" class="logo">            <h1>ലൈവ് കൊച്ചി 365 വാർത്തകൾ</h1>
         </div>
     </header>
 
@@ -172,6 +170,16 @@
         </main>
 
         <aside class="sidebar">
+
+            <div class="widget">
+               
+                <a href="https://chat.whatsapp.com/GN932r3xdUdL5hVboXQt2A?mode=gi_t" target="_blank" class="social-btn whatsapp-btn">
+                    WhatsApp ഗ്രൂപ്പിൽ ചേരുക
+                </a>
+                <a href="https://m.youtube.com/@livekochi365" target="_blank" class="social-btn youtube-btn">
+                    YouTube ചാനൽ സബ്സ്ക്രൈബ് ചെയ്യുക
+                </a>
+            </div>
             
             <div class="widget">
                 <h3 class="widget-title">കേരളത്തിലെ കാലാവസ്ഥ (Weather)</h3>
@@ -185,7 +193,12 @@
             <div class="widget">
                 <h3 class="widget-title">ചരിത്രത്തിൽ ഇന്ന് (Today in History)</h3>
                 <span class="date-display" id="history-date"></span>
-                <p id="history-fact">Loading historical facts...</p>
+                
+                <h4 class="history-section-title">🇮🇳 ഇന്ത്യൻ ചരിത്രം:</h4>
+                <p class="history-text" id="history-india">വിവരങ്ങൾ തിരയുന്നു...</p>
+
+                <h4 class="history-section-title">🌍 ലോക ചരിത്രം:</h4>
+                <p class="history-text" id="history-world">വിവരങ്ങൾ തിരയുന്നു...</p>
             </div>
 
         </aside>
@@ -199,7 +212,7 @@
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById('news-container');
-                container.innerHTML = ''; // Clear loading text
+                container.innerHTML = ''; 
                 
                 data.forEach(article => {
                     const newsCard = document.createElement('div');
@@ -240,7 +253,6 @@
 
         function fetchWeather() {
             const district = districts[currentDistrictIndex];
-            // Uses Open-Meteo free API (No API key required!)
             const url = `https://api.open-meteo.com/v1/forecast?latitude=${district.lat}&longitude=${district.lon}&current_weather=true`;
 
             fetch(url)
@@ -251,37 +263,75 @@
                 })
                 .catch(err => console.error("Weather error:", err));
 
-            // Move to the next district (loops back to 0 at the end)
             currentDistrictIndex = (currentDistrictIndex + 1) % districts.length;
         }
 
-        // Fetch first district immediately, then change every 5 seconds (5000ms)
         fetchWeather();
         setInterval(fetchWeather, 5000); 
 
         // --------------------------------------------------------
-        // 3. TODAY IN HISTORY (KERALA/INDIA FOCUS)
+        // 3. DYNAMIC INTERNET HISTORY WITH AUTO-TRANSLATION
         // --------------------------------------------------------
-        // Set today's date
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('history-date').innerText = new Date().toLocaleDateString('en-IN', options);
-
-        // A list of historical facts that rotate randomly every time the page loads
-        // A list of historical facts in Malayalam
-        const historyFacts = [
-            "1956: മലബാർ, കൊച്ചി, തിരുവിതാംകൂർ എന്നിവ ലയിപ്പിച്ച് സംസ്ഥാന പുനഃസംഘടനാ നിയമപ്രകാരം ആധുനിക കേരള സംസ്ഥാനം ഔദ്യോഗികമായി രൂപീകരിച്ചു.",
-            "1498: വാസ്കോ ഡ ഗാമ കോഴിക്കോട് (കാപ്പാട്) കപ്പലിറങ്ങി, ഇത് ഇന്ത്യൻ ചരിത്രത്തിന്റെ ഗതിമാറ്റിമറിച്ചു.",
-            "1947: ബ്രിട്ടീഷ് ഭരണത്തിൽ നിന്ന് ഇന്ത്യക്ക് സ്വാതന്ത്ര്യം ലഭിച്ചു.",
-            "1936: തിരുവിതാംകൂറിൽ ക്ഷേത്രപ്രവേശന വിളംബരം പുറപ്പെടുവിച്ചു, എല്ലാ ഹിന്ദുക്കൾക്കും ക്ഷേത്രങ്ങളിൽ പ്രവേശിക്കാൻ അനുമതി ലഭിച്ചു.",
-            "1990: എറണാകുളം ഇന്ത്യയിലെ ആദ്യത്തെ സമ്പൂർണ്ണ സാക്ഷരതാ ജില്ലയായി പ്രഖ്യാപിക്കപ്പെട്ടു.",
-            "1957: ഇ.എം.എസ് നമ്പൂതിരിപ്പാടിന്റെ നേതൃത്വത്തിൽ ലോകത്തിലെ ആദ്യത്തെ ജനാധിപത്യ കമ്മ്യൂണിസ്റ്റ് സർക്കാർ കേരളത്തിൽ അധികാരത്തിൽ വന്നു."
-        ];
-
-        // Pick a random fact based on the current day of the year so it changes daily
-        const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
-        const dailyFact = historyFacts[dayOfYear % historyFacts.length];
         
-        document.getElementById('history-fact').innerText = dailyFact;
+        // Set today's date in Malayalam
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('history-date').innerText = new Date().toLocaleDateString('ml-IN', options);
+
+        // Hidden helper function to secretly translate English internet facts to Malayalam
+        async function translateToMalayalam(text) {
+            const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ml&dt=t&q=${encodeURIComponent(text)}`;
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data[0].map(item => item[0]).join(''); // Combines the translated sentences
+            } catch (error) {
+                return text; // If translation fails, return original
+            }
+        }
+
+        // Fetch live history from Wikipedia's internet database
+        async function fetchLiveHistory() {
+            const today = new Date();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            
+            try {
+                // Get today's historical events from Wikipedia API
+                const wikiRes = await fetch(`https://en.wikipedia.org/api/rest_v1/feed/onthisday/events/${month}/${day}`);
+                const wikiData = await wikiRes.json();
+                
+                const events = wikiData.events;
+                
+                // Search the database for an event mentioning "India" or "Indian"
+                let indiaEvent = events.find(e => e.text.includes('India') || e.text.includes('Indian'));
+                
+                // Pick a random world event that is NOT the Indian one
+                let worldEvent = events.find(e => e !== indiaEvent);
+
+                // Translate and display Indian Event
+                if (indiaEvent) {
+                    const translatedIndia = await translateToMalayalam(indiaEvent.text);
+                    document.getElementById('history-india').innerText = `${indiaEvent.year}: ${translatedIndia}`;
+                } else {
+                    document.getElementById('history-india').innerText = "ഇന്ത്യൻ ചരിത്രത്തിൽ ഇന്ന് സുപ്രധാന സംഭവങ്ങൾ ലഭ്യമല്ല.";
+                }
+
+                // Translate and display World Event
+                if (worldEvent) {
+                    const translatedWorld = await translateToMalayalam(worldEvent.text);
+                    document.getElementById('history-world').innerText = `${worldEvent.year}: ${translatedWorld}`;
+                } else {
+                    document.getElementById('history-world').innerText = "ലോക ചരിത്രത്തിൽ ഇന്ന് സുപ്രധാന സംഭവങ്ങൾ ലഭ്യമല്ല.";
+                }
+
+            } catch (error) {
+                document.getElementById('history-india').innerText = "ചരിത്രം ലോഡുചെയ്യുന്നതിൽ പിശക്.";
+                document.getElementById('history-world').innerText = "ചരിത്രം ലോഡുചെയ്യുന്നതിൽ പിശക്.";
+            }
+        }
+
+        // Start the internet fetch when the page loads
+        fetchLiveHistory();
 
     </script>
 </body>

@@ -3,34 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ലൈവ് കൊച്ചി 365 വാർത്തകൾ</title>
+    <title>ലൈവ് കൊച്ചി 365 | Live Kochi 365 News</title>
+    
+   <link rel="icon" href="https://yt3.googleusercontent.com/ny-IusL893j_6ucVYxkBAQEfyjFcEERQV9UPYc5hFHJkWIV0FJdHSdG8Q8zn7ePLjYaY3I3_YZs=s120-c-k-c0x00ffffff-no-rj">
     <style>
-        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
-        .news-card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        h1 { color: #d32f2f; text-align: center; }
-        h2 { color: #333; margin-top: 0; }
-        .video-btn { display: inline-block; background: #ff0000; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; margin-top: 10px; }
+        /* Modern Newspaper Theme */
+        :root {
+            --primary-red: #d32f2f;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-muted: #666666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-red);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 60px; /* Adjust this if your logo is too big/small */
+            width: auto;
+        }
+
+        h1 {
+            color: var(--primary-red);
+            margin: 0;
+            font-size: 2.2rem;
+            font-family: 'Georgia', serif; /* Gives a news-publisher feel */
+        }
+
+        /* Layout Grid */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2.5fr 1fr; /* News takes 2.5x more space than sidebar */
+            gap: 30px;
+        }
+
+        /* News Cards */
+        .news-card {
+            background: var(--card-bg);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-red);
+        }
+
+        .news-card h2 {
+            margin-top: 0;
+            color: #111;
+            font-size: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .video-btn {
+            display: inline-block;
+            background: var(--primary-red);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .video-btn:hover {
+            background: #b71c1c;
+        }
+
+        /* Sidebar Widgets */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            color: var(--primary-red);
+            font-size: 1.2rem;
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+        }
+
+        /* Weather specific styling */
+        .weather-info {
+            text-align: center;
+        }
+        .district-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .temperature {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        /* History specific styling */
+        .date-display {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 850px) {
+            .container {
+                grid-template-columns: 1fr; /* Stacks everything on mobile */
+            }
+        }
     </style>
 </head>
 <body>
 
-    <h1>ഏറ്റവും പുതിയ വാർത്തകൾ</h1>
-
-    <div id="news-container">
+    <header>
+        <div class="header-content">
+            <img src="https://yt3.googleusercontent.com/ny-IusL893j_6ucVYxkBAQEfyjFcEERQV9UPYc5hFHJkWIV0FJdHSdG8Q8zn7ePLjYaY3I3_YZs=s120-c-k-c0x00ffffff-no-rj" alt="Live Kochi 365 Logo" class="logo">
+            <h1>ലൈവ് കൊച്ചി 365 വാർത്തകൾ</h1>
         </div>
+    </header>
+
+    <div class="container">
+        
+        <main id="news-container">
+            <p>വാർത്തകൾ ലോഡുചെയ്യുന്നു... (Loading news...)</p>
+        </main>
+
+        <aside class="sidebar">
+            
+            <div class="widget">
+                <h3 class="widget-title">കേരളത്തിലെ കാലാവസ്ഥ (Weather)</h3>
+                <div class="weather-info" id="weather-content">
+                    <div class="district-name" id="w-district">Loading...</div>
+                    <div class="temperature" id="w-temp">--°C</div>
+                    <div style="font-size: 0.9em; color: #888;">Updating live...</div>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">ചരിത്രത്തിൽ ഇന്ന് (Today in History)</h3>
+                <span class="date-display" id="history-date"></span>
+                <p id="history-fact">Loading historical facts...</p>
+            </div>
+
+        </aside>
+    </div>
 
     <script>
+        // --------------------------------------------------------
+        // 1. LOAD THE YOUTUBE NEWS
+        // --------------------------------------------------------
         fetch('news.json')
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById('news-container');
+                container.innerHTML = ''; // Clear loading text
+                
                 data.forEach(article => {
                     const newsCard = document.createElement('div');
                     newsCard.className = 'news-card';
                     newsCard.innerHTML = `
                         <h2>${article.title}</h2>
                         <p>${article.content}</p>
-                        <a href="${article.video_link}" target="_blank" class="video-btn">വീഡിയോ കാണുക</a>
+                        <a href="${article.video_link}" target="_blank" class="video-btn">വീഡിയോ കാണുക (Watch Video)</a>
                     `;
                     container.appendChild(newsCard);
                 });
@@ -38,6 +215,74 @@
             .catch(error => {
                 document.getElementById('news-container').innerHTML = "<p>വാർത്തകൾ ലോഡുചെയ്യുന്നതിൽ പിശക്. (Error loading news).</p>";
             });
+
+        // --------------------------------------------------------
+        // 2. ROTATING WEATHER FOR 14 KERALA DISTRICTS
+        // --------------------------------------------------------
+        const districts = [
+            {name: 'Thiruvananthapuram', lat: 8.5241, lon: 76.9366},
+            {name: 'Kollam', lat: 8.8932, lon: 76.6141},
+            {name: 'Pathanamthitta', lat: 9.2648, lon: 76.7870},
+            {name: 'Alappuzha', lat: 9.4981, lon: 76.3388},
+            {name: 'Kottayam', lat: 9.5916, lon: 76.5222},
+            {name: 'Idukki', lat: 9.8494, lon: 76.9803},
+            {name: 'Ernakulam', lat: 9.9816, lon: 76.2999},
+            {name: 'Thrissur', lat: 10.5276, lon: 76.2144},
+            {name: 'Palakkad', lat: 10.7867, lon: 76.6548},
+            {name: 'Malappuram', lat: 11.0732, lon: 76.0740},
+            {name: 'Kozhikode', lat: 11.2588, lon: 75.7804},
+            {name: 'Wayanad', lat: 11.6854, lon: 76.1320},
+            {name: 'Kannur', lat: 11.8745, lon: 75.3704},
+            {name: 'Kasaragod', lat: 12.4996, lon: 74.9869}
+        ];
+
+        let currentDistrictIndex = 0;
+
+        function fetchWeather() {
+            const district = districts[currentDistrictIndex];
+            // Uses Open-Meteo free API (No API key required!)
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${district.lat}&longitude=${district.lon}&current_weather=true`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('w-district').innerText = district.name;
+                    document.getElementById('w-temp').innerText = data.current_weather.temperature + "°C";
+                })
+                .catch(err => console.error("Weather error:", err));
+
+            // Move to the next district (loops back to 0 at the end)
+            currentDistrictIndex = (currentDistrictIndex + 1) % districts.length;
+        }
+
+        // Fetch first district immediately, then change every 5 seconds (5000ms)
+        fetchWeather();
+        setInterval(fetchWeather, 5000); 
+
+        // --------------------------------------------------------
+        // 3. TODAY IN HISTORY (KERALA/INDIA FOCUS)
+        // --------------------------------------------------------
+        // Set today's date
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('history-date').innerText = new Date().toLocaleDateString('en-IN', options);
+
+        // A list of historical facts that rotate randomly every time the page loads
+        // A list of historical facts in Malayalam
+        const historyFacts = [
+            "1956: മലബാർ, കൊച്ചി, തിരുവിതാംകൂർ എന്നിവ ലയിപ്പിച്ച് സംസ്ഥാന പുനഃസംഘടനാ നിയമപ്രകാരം ആധുനിക കേരള സംസ്ഥാനം ഔദ്യോഗികമായി രൂപീകരിച്ചു.",
+            "1498: വാസ്കോ ഡ ഗാമ കോഴിക്കോട് (കാപ്പാട്) കപ്പലിറങ്ങി, ഇത് ഇന്ത്യൻ ചരിത്രത്തിന്റെ ഗതിമാറ്റിമറിച്ചു.",
+            "1947: ബ്രിട്ടീഷ് ഭരണത്തിൽ നിന്ന് ഇന്ത്യക്ക് സ്വാതന്ത്ര്യം ലഭിച്ചു.",
+            "1936: തിരുവിതാംകൂറിൽ ക്ഷേത്രപ്രവേശന വിളംബരം പുറപ്പെടുവിച്ചു, എല്ലാ ഹിന്ദുക്കൾക്കും ക്ഷേത്രങ്ങളിൽ പ്രവേശിക്കാൻ അനുമതി ലഭിച്ചു.",
+            "1990: എറണാകുളം ഇന്ത്യയിലെ ആദ്യത്തെ സമ്പൂർണ്ണ സാക്ഷരതാ ജില്ലയായി പ്രഖ്യാപിക്കപ്പെട്ടു.",
+            "1957: ഇ.എം.എസ് നമ്പൂതിരിപ്പാടിന്റെ നേതൃത്വത്തിൽ ലോകത്തിലെ ആദ്യത്തെ ജനാധിപത്യ കമ്മ്യൂണിസ്റ്റ് സർക്കാർ കേരളത്തിൽ അധികാരത്തിൽ വന്നു."
+        ];
+
+        // Pick a random fact based on the current day of the year so it changes daily
+        const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+        const dailyFact = historyFacts[dayOfYear % historyFacts.length];
+        
+        document.getElementById('history-fact').innerText = dailyFact;
+
     </script>
 </body>
 </html>

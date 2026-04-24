@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ലൈവ് കൊച്ചി 365 വാർത്തകൾ</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .news-card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #d32f2f; text-align: center; }
+        h2 { color: #333; margin-top: 0; }
+        .video-btn { display: inline-block; background: #ff0000; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <h1>ഏറ്റവും പുതിയ വാർത്തകൾ</h1>
+
+    <div id="news-container">
+        </div>
+
+    <script>
+        fetch('news.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('news-container');
+                data.forEach(article => {
+                    const newsCard = document.createElement('div');
+                    newsCard.className = 'news-card';
+                    newsCard.innerHTML = `
+                        <h2>${article.title}</h2>
+                        <p>${article.content}</p>
+                        <a href="${article.video_link}" target="_blank" class="video-btn">വീഡിയോ കാണുക</a>
+                    `;
+                    container.appendChild(newsCard);
+                });
+            })
+            .catch(error => {
+                document.getElementById('news-container').innerHTML = "<p>വാർത്തകൾ ലോഡുചെയ്യുന്നതിൽ പിശക്. (Error loading news).</p>";
+            });
+    </script>
+</body>
+</html>

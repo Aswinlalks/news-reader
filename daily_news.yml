@@ -1,0 +1,30 @@
+name: Update Malayalam News
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs once a day
+  workflow_dispatch: 
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: pip install requests
+
+      - name: Run News Updater Script
+        run: python update_news.py
+
+      - name: Save New Articles to Website
+        run: |
+          git config --global user.name "News Bot"
+          git config --global user.email "bot@news.local"
+          git add news.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-updated daily news" && git push)
